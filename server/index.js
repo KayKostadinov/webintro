@@ -9,7 +9,13 @@ const __dirname = dirname(__filename);
 
 const app = express();
 const port = 3333;
-
+app.use((req, res, next) => {
+  res.setHeader(
+    'Content-Type', 'application/json'
+  );
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  next();
+})
 app.use(express.json());
 app.use(express.static(join(__dirname, 'static')));
 

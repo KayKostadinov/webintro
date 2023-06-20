@@ -11,7 +11,7 @@ function Home() {
   }
 
   const getJoke = async () => {
-    const apiRes = await fetch('https://official-joke-api.appspot.com/random_joke');
+    const apiRes = await fetch('http://localhost:3333/jokes');
     const data = await apiRes.json();
     setJoke(data.setup + ' ' + data.punchline);
   }
